@@ -4,10 +4,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Draggable : MonoBehaviour {
-
-        private Vector3 screenPoint;
-        private Vector3 offset;
-
+       
+    public Vector3 screenPoint;
+    public Vector3 offset;
+       
 	// Use this for initialization
 	void Start () {
 		
@@ -41,8 +41,13 @@ public class Draggable : MonoBehaviour {
     public void BeginDrag()
     {
         print("drag begins");
-        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+        offset = gameObject.transform.position - PointerLocation();
 
+    }
+
+    public Vector3 PointerLocation()
+    {
+        return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
     }
 
     public void MoveFood()
