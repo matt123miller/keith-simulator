@@ -13,7 +13,10 @@ public class BBQ : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        foreach (Food item in food)
+        {
+            item.Cook();
+        }
 	}
 
     public void AcceptFood(Food _food)
