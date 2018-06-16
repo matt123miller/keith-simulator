@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114682541386972890}
   - component: {fileID: 114431098836680968}
   m_Layer: 8
-  m_Name: sprite-burger
+  m_Name: sausage
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
