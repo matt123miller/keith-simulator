@@ -26,8 +26,15 @@ public class Food : MonoBehaviour {
 
     public void Cook()
     {
-        print("Cooking!");
-        float lerp = Mathf.PingPong(Time.time, cookDuration) / cookDuration;
-        renderer.material.Lerp(rawMaterial, cookedMaterial, lerp);
+        cookPercentage += (Time.deltaTime * cookRate) / cookDuration;
+        // float lerp = Mathf.PingPong(Time.time, cookDuration) / cookDuration;
+        if(cookPercentage < 1){
+            
+            print("Cooking..."+(cookPercentage * 100) + " %");
+            renderer.material.Lerp(rawMaterial, cookedMaterial, cookPercentage);
+        }
+        else { 
+            print("Burning!!!!");
+        }
     }
 }

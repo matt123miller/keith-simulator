@@ -7,10 +7,15 @@ public class Draggable : MonoBehaviour {
        
     public Vector3 screenPoint;
     public Vector3 offset;
+    
+    private Camera camera;
+    private Food selfFood;
        
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+		camera = Camera.main;
+        selfFood = transform.GetComponent<Food>();
+        print(selfFood);
 	}
 	
 	// Update is called once per frame
@@ -32,10 +37,25 @@ public class Draggable : MonoBehaviour {
     {
         // If your mouse hovers over the GameObject with the script attached, output this message
         EndDrag(); 
+        //raycast down to find the bbq
+        int bbqLayerIndex = LayerMask.NameToLayer("BBQ");
+        // bit shift dat shit
+        int layerMask = (1 << bbqLayerIndex);
 
-        // Ray cast, preferably avoiding the layer the food is on.
+        Vector3 down = transform.TransformDirection(Vector3.forward);
+        RaycastHit hit;
+        //Raycast with that layer mask
+        if (Physics.Raycast(transform.position, down, out hit, Mathf.Infinity, layerMask))
+        {
+            print(hit.transform);
+            BBQ bbq = hit.transform.GetComponent<BBQ>();
 
-        // Is it now on the bbq?
+            if (!bbq)
+            {
+                return;
+            }
+            bbq.AcceptFood(selfFood);
+        }
     }
 
     public void BeginDrag()
@@ -47,14 +67,12 @@ public class Draggable : MonoBehaviour {
 
     public Vector3 PointerLocation()
     {
-        return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+        return camera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
     }
 
     public void MoveFood()
     {
-        Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
-        transform.position = curPosition;
+        transform.position = PointerLocation() + offset;
     }
 
     public void DragTo(Vector2 pos)
@@ -65,5 +83,6 @@ public class Draggable : MonoBehaviour {
     public void EndDrag()
     {
         print("Drag ended!");
+        // Change some textures and state?
     }
 }

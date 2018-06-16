@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4042755143827814, guid: 26e36aea217f8c040a6fae020f3646a8, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.028295137
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4042755143827814, guid: 26e36aea217f8c040a6fae020f3646a8, type: 2}
       propertyPath: m_LocalRotation.x
@@ -331,6 +331,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &889121311 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1294518894653014, guid: 8fa3dee87cecf9d40aedd99c0e7ab898,
+    type: 2}
+  m_PrefabInternal: {fileID: 1023860379}
+--- !u!114 &889121317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889121311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d95f34cdbbbd07647ab83f1907db739f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawMaterial: {fileID: 2100000, guid: 3dec6aab7fe0ca949ae78144d905c37c, type: 2}
+  cookedMaterial: {fileID: 2100000, guid: 91a98377e25e4c74e92458e1783e754c, type: 2}
+  renderer: {fileID: 0}
+  flipped: 0
+  cookPercentage: 0
+  cookDuration: 10
+  cookRate: 1.247
 --- !u!1001 &1023860379
 Prefab:
   m_ObjectHideFlags: 0
@@ -348,7 +371,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4276721983321606, guid: 8fa3dee87cecf9d40aedd99c0e7ab898, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4276721983321606, guid: 8fa3dee87cecf9d40aedd99c0e7ab898, type: 2}
       propertyPath: m_LocalRotation.x
