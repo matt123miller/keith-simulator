@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Food : MonoBehaviour {
 
-    public Material rawMaterial, cookedMaterial;
-    public Renderer renderer;
+    public Color opaqueColour, transparentColour;
+    public SpriteRenderer rawRender, cookedRender, burntRender;
 
     public bool flipped = false;
     public float cookPercentage = 0;
@@ -15,8 +15,12 @@ public class Food : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        renderer = transform.GetComponent<Renderer>();
-        renderer.material = rawMaterial;
+        rawRender = transform.GetComponent<SpriteRenderer>();
+        cookedRender = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        burntRender = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        
+        rawRender.color = opaqueColour;
+        cookedRender.color = burntRender.color = transparentColour;
 	}
 	
 	// Update is called once per frame
@@ -26,15 +30,28 @@ public class Food : MonoBehaviour {
 
     public void Cook()
     {
+        // Lerp anim curves
+        // raw to cooked has curve above straight, cooked to burnt has curve below straight.
+
         cookPercentage += (Time.deltaTime * cookRate) / cookDuration;
         // float lerp = Mathf.PingPong(Time.time, cookDuration) / cookDuration;
         if(cookPercentage < 1){
             
             print("Cooking..."+(cookPercentage * 100) + " %");
-            renderer.material.Lerp(rawMaterial, cookedMaterial, cookPercentage);
+
+            rawRender.color = Color.Lerp(opaqueColour, transparentColour, cookPercentage);
+            cookedRender.color = Color.Lerp(transparentColour, opaqueColour, cookPercentage);
+
+            // cookedRender.color = Color.Lerp();
+            // spriteRenderer.material.Lerp(rawMaterial, cookedMaterial, cookPercentage);
         }
         else { 
             print("Burning!!!!");
+            // Lerp between cooked and burnt!
+            cookedRender.color = Color.Lerp(opaqueColour, transparentColour, cookPercentage - 1);
+            burntRender.color = Color.Lerp(transparentColour, opaqueColour, cookPercentage - 1);
+
+
         }
     }
 }
