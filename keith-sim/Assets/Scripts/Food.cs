@@ -7,7 +7,6 @@ public class Food : MonoBehaviour {
     public Color opaqueColour, transparentColour;
     public SpriteRenderer rawRender, cookedRender, burntRender;
 
-    public bool flipped = false;
     public float cookPercentage = 0;
     public float cookDuration = 10;
     [Range(0.7f, 1.3f)]
@@ -28,6 +27,9 @@ public class Food : MonoBehaviour {
 		
 	}
 
+
+    // Tap the food to finish it. Add score depending on cook amount.
+
     public void Cook()
     {
         // Lerp anim curves
@@ -37,21 +39,20 @@ public class Food : MonoBehaviour {
         // float lerp = Mathf.PingPong(Time.time, cookDuration) / cookDuration;
         if(cookPercentage < 1){
             
-            print("Cooking..."+(cookPercentage * 100) + " %");
-
             rawRender.color = Color.Lerp(opaqueColour, transparentColour, cookPercentage);
             cookedRender.color = Color.Lerp(transparentColour, opaqueColour, cookPercentage);
 
-            // cookedRender.color = Color.Lerp();
-            // spriteRenderer.material.Lerp(rawMaterial, cookedMaterial, cookPercentage);
         }
-        else { 
-            print("Burning!!!!");
+        else if (cookPercentage < 2) { 
             // Lerp between cooked and burnt!
             cookedRender.color = Color.Lerp(opaqueColour, transparentColour, cookPercentage - 1);
             burntRender.color = Color.Lerp(transparentColour, opaqueColour, cookPercentage - 1);
 
 
+        }
+        else {
+            Destroy(this.gameObject);
+            // Lose score?
         }
     }
 }

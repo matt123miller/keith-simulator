@@ -7,6 +7,7 @@ public class Draggable : MonoBehaviour {
        
     public Vector3 screenPoint;
     public Vector3 offset;
+    public bool cooking = false;
     
     private Camera camera;
     private Food selfFood;
@@ -20,7 +21,13 @@ public class Draggable : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(!cooking){
+             transform.Translate(Vector3.right * Time.deltaTime);
+
+             if(transform.position.x > 5){
+                 Destroy(gameObject);
+             }
+        }
 	}
 
     void OnMouseDown()
@@ -54,6 +61,7 @@ public class Draggable : MonoBehaviour {
             {
                 return;
             }
+            cooking = true;
             bbq.AcceptFood(selfFood);
         }
     }
