@@ -578,8 +578,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bbqRoot: {fileID: 750375302}
-  spawnRates: []
+  spawnRates:
+  - 0.8
+  - 1.2
+  - 0.4
+  - 0.7
+  - 2
   spawnIndex: 0
+  currentSpawnThreshold: 0
   spawnCounter: 0
 --- !u!4 &1943965757
 Transform:
