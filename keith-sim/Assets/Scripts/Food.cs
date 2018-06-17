@@ -29,7 +29,9 @@ public class Food : MonoBehaviour {
         if(cookPercentage < 0.1) return;
 
         // cookPercentage is powered by anim curves so the score can be altered easily.
-        int scoreIncrease = (int)(cookPercentage * 100) ;
+        int scoreIncrease = cookPercentage <= 1 ? (int)(cookPercentage * 100) : (int)((2 - cookPercentage) * 100) ;
+        print("Cook percentage: " + cookPercentage);
+        print("Score increase: " + scoreIncrease);
         Score.Instance.AddScore(scoreIncrease);
 
         EndCooking();
