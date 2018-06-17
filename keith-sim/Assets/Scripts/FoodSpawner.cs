@@ -9,8 +9,7 @@ public class FoodSpawner : MonoBehaviour {
 
 	public Transform bbqRoot;
 	public GameObject[] foodTypes;
-	public float[] spawnRates;
-	public int spawnIndex = 0;
+	public float lowRange, highRange;
 	public float currentSpawnThreshold;
 	public float spawnCounter;
 
@@ -23,8 +22,8 @@ public class FoodSpawner : MonoBehaviour {
 		// Position is set to the bottom left of the bbq, slightly off screen
 		transform.position = new Vector2(x, y);
 		// Now you can spawn food off screen anywhere between position.y and 0
+		currentSpawnThreshold = Random.Range(lowRange, highRange);
 
-		currentSpawnThreshold = spawnRates[spawnIndex];
 	}
 	
 	// Update is called once per frame
@@ -34,26 +33,17 @@ public class FoodSpawner : MonoBehaviour {
 
 		if(spawnCounter > currentSpawnThreshold)
 		{
-			//print("new food! " + currentSpawnThreshold);
-			
-			IncrementIndexes();	
+			currentSpawnThreshold = Random.Range(lowRange, highRange);
+			spawnCounter = 0;
+				
 			Spawn();
 		}
 	}
 
-	void IncrementIndexes(){
-		spawnIndex++;
-		spawnCounter = 0;
-		if(spawnIndex >= spawnRates.Length)
-		{
-			spawnIndex = 0;
-		}
-		currentSpawnThreshold = spawnRates[spawnIndex];
-	}
 
 	void Spawn(){
 		GameObject prefab = foodTypes[Random.Range(0, foodTypes.Length)];
-		float y = Random.Range(0.2f, 1.8f);
+		float y = Random.Range(0.2f, transform.position.y * 0.9f);
 		float x = bbqRoot.position.x - (bbqRoot.localScale.x) ;
 		Vector3 spawnPos = new Vector3(x, y, 0);
 

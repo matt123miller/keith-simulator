@@ -22,14 +22,23 @@ public class Food : MonoBehaviour {
         rawRender.color =  cookedRender.color = burntRender.color =opaqueColour;
         // = transparentColour;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
+	// Tap the food to finish it. Add score depending on cook amount.
+	void OnMouseDown()
+    {
+        if(cookPercentage < 0.1) return;
 
-    // Tap the food to finish it. Add score depending on cook amount.
+        // cookPercentage is powered by anim curves so the score can be altered easily.
+        int scoreIncrease = (int)(cookPercentage * 100) ;
+        Score.Instance.AddScore(scoreIncrease);
+
+        EndCooking();
+    }
+
+    public void EndCooking() {
+            bbq.ReleaseFood(this);
+            Destroy(this.gameObject, 0.01f);
+    }
 
     public void Cook()
     {
@@ -37,24 +46,19 @@ public class Food : MonoBehaviour {
         // raw to cooked has curve above straight, cooked to burnt has curve below straight.
 
         cookPercentage += (Time.deltaTime * cookRate) / cookDuration;
-        // float lerp = Mathf.PingPong(Time.time, cookDuration) / cookDuration;
+
         if(cookPercentage < 1){
             
             rawRender.color = Color.Lerp(opaqueColour, transparentColour, cookPercentage);
-            // cookedRender.color = Color.Lerp(transparentColour, opaqueColour, cookPercentage);
-
         }
         else if (cookPercentage < 2) { 
             // Lerp between cooked and burnt!
             cookedRender.color = Color.Lerp(opaqueColour, transparentColour, cookPercentage - 1);
-            // burntRender.color = Color.Lerp(transparentColour, opaqueColour, cookPercentage - 1);
-
-
         }
         else {
-            bbq.ReleaseFood(this);
-            Destroy(this.gameObject, 0.01f);
+            EndCooking();
             // Lose score?
+            Score.Instance.AddScore(-100);
         }
     }
 

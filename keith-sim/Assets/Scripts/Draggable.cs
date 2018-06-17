@@ -24,10 +24,11 @@ public class Draggable : MonoBehaviour {
 		if(!cooking){
              transform.Translate(Vector3.right * Time.deltaTime);
 
-             if(transform.position.x > 5){
+             if(transform.position.x >= 4){
                  // don't need to clean up bbq because this is destroyed off screen.
                  // Aint no cooking happening here folks.
                  Destroy(gameObject);
+                 Score.Instance.AddScore(-20);
              }
         }
 	}

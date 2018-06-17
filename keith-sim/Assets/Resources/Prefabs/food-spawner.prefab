@@ -55,6 +55,8 @@ MonoBehaviour:
   foodTypes:
   - {fileID: 1603749692741994, guid: 042173b558c383240803059d06d18973, type: 2}
   - {fileID: 1603749692741994, guid: dab411e48dbd204488e16ad74acd3710, type: 2}
+  lowRange: 0.8
+  highRange: 2
   spawnRates:
   - 0.8
   - 1.2
