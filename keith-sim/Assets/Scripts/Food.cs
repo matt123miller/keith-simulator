@@ -19,8 +19,8 @@ public class Food : MonoBehaviour {
         cookedRender = transform.GetChild(0).GetComponent<SpriteRenderer>();
         burntRender = transform.GetChild(1).GetComponent<SpriteRenderer>();
         
-        rawRender.color = opaqueColour;
-        cookedRender.color = burntRender.color = transparentColour;
+        rawRender.color =  cookedRender.color = burntRender.color =opaqueColour;
+        // = transparentColour;
 	}
 	
 	// Update is called once per frame
@@ -41,13 +41,13 @@ public class Food : MonoBehaviour {
         if(cookPercentage < 1){
             
             rawRender.color = Color.Lerp(opaqueColour, transparentColour, cookPercentage);
-            cookedRender.color = Color.Lerp(transparentColour, opaqueColour, cookPercentage);
+            // cookedRender.color = Color.Lerp(transparentColour, opaqueColour, cookPercentage);
 
         }
         else if (cookPercentage < 2) { 
             // Lerp between cooked and burnt!
             cookedRender.color = Color.Lerp(opaqueColour, transparentColour, cookPercentage - 1);
-            burntRender.color = Color.Lerp(transparentColour, opaqueColour, cookPercentage - 1);
+            // burntRender.color = Color.Lerp(transparentColour, opaqueColour, cookPercentage - 1);
 
 
         }
