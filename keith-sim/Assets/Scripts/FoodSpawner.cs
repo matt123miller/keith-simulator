@@ -34,7 +34,7 @@ public class FoodSpawner : MonoBehaviour {
 
 		if(spawnCounter > currentSpawnThreshold)
 		{
-			print("new food! " + currentSpawnThreshold);
+			//print("new food! " + currentSpawnThreshold);
 			
 			IncrementIndexes();	
 			Spawn();

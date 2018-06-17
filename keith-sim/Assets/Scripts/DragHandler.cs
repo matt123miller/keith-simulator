@@ -28,7 +28,7 @@ public class DragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
             {
                 // the object identified by hit.transform was clicked
                 // do whatever you want
-                print(hit.transform);
+                //print(hit.transform);
 
                 if (!draggedObject)
                 {

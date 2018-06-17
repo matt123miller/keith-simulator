@@ -233,7 +233,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4901404828659226, guid: dab411e48dbd204488e16ad74acd3710, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.25
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 4901404828659226, guid: dab411e48dbd204488e16ad74acd3710, type: 2}
       propertyPath: m_LocalPosition.y
@@ -262,44 +262,6 @@ Prefab:
     - target: {fileID: 4901404828659226, guid: dab411e48dbd204488e16ad74acd3710, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 212523313199888770, guid: dab411e48dbd204488e16ad74acd3710,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 01fee47deb55bd14f804ea75dde7bcfa,
-        type: 3}
-    - target: {fileID: 212238171850807118, guid: dab411e48dbd204488e16ad74acd3710,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2def3ca4bf1faeb40a056168c4dfafcc,
-        type: 3}
-    - target: {fileID: 212922469985293132, guid: dab411e48dbd204488e16ad74acd3710,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0beaa60aa22a2fa46aba17b0ce815917,
-        type: 3}
-    - target: {fileID: 61785628661727620, guid: dab411e48dbd204488e16ad74acd3710,
-        type: 2}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 14.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 61785628661727620, guid: dab411e48dbd204488e16ad74acd3710,
-        type: 2}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 5.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 61785628661727620, guid: dab411e48dbd204488e16ad74acd3710,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 61785628661727620, guid: dab411e48dbd204488e16ad74acd3710,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dab411e48dbd204488e16ad74acd3710, type: 2}
@@ -578,6 +540,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bbqRoot: {fileID: 750375302}
+  foodTypes:
+  - {fileID: 1603749692741994, guid: 042173b558c383240803059d06d18973, type: 2}
+  - {fileID: 1603749692741994, guid: dab411e48dbd204488e16ad74acd3710, type: 2}
   spawnRates:
   - 0.8
   - 1.2

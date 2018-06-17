@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Food : MonoBehaviour {
 
+    public BBQ bbq;
     public Color opaqueColour, transparentColour;
     public SpriteRenderer rawRender, cookedRender, burntRender;
 
@@ -51,8 +52,11 @@ public class Food : MonoBehaviour {
 
         }
         else {
-            Destroy(this.gameObject);
+            bbq.ReleaseFood(this);
+            Destroy(this.gameObject, 0.01f);
             // Lose score?
         }
     }
+
+
 }

@@ -13,7 +13,7 @@ public class BBQ : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        foreach (Food item in food)
+        foreach (Food item in food.ToArray())
         {
             item.Cook();
         }
@@ -22,5 +22,11 @@ public class BBQ : MonoBehaviour {
     public void AcceptFood(Food _food)
     {
         food.Add(_food);
+        _food.bbq = this;
+    }
+
+    public void ReleaseFood(Food _food)
+    {
+        food.Remove(_food);
     }
 }

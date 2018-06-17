@@ -96,7 +96,7 @@ Transform:
   m_GameObject: {fileID: 1603749692741994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.82, y: -3.12, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_Children:
   - {fileID: 4876943070731366}
   - {fileID: 4598113123416750}
@@ -139,12 +139,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95f34cdbbbd07647ab83f1907db739f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bbq: {fileID: 0}
   opaqueColour: {r: 1, g: 1, b: 1, a: 1}
   transparentColour: {r: 1, g: 1, b: 1, a: 0}
   rawRender: {fileID: 0}
   cookedRender: {fileID: 0}
   burntRender: {fileID: 0}
-  flipped: 0
   cookPercentage: 0
   cookDuration: 3
   cookRate: 1
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenPoint: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}
+  cooking: 0
 --- !u!212 &212238171850807118
 SpriteRenderer:
   m_ObjectHideFlags: 1

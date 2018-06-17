@@ -16,7 +16,7 @@ public class Draggable : MonoBehaviour {
 	void Awake () {
 		camera = Camera.main;
         selfFood = transform.GetComponent<Food>();
-        print(selfFood);
+        //print(selfFood);
 	}
 	
 	// Update is called once per frame
@@ -25,6 +25,8 @@ public class Draggable : MonoBehaviour {
              transform.Translate(Vector3.right * Time.deltaTime);
 
              if(transform.position.x > 5){
+                 // don't need to clean up bbq because this is destroyed off screen.
+                 // Aint no cooking happening here folks.
                  Destroy(gameObject);
              }
         }
@@ -54,7 +56,7 @@ public class Draggable : MonoBehaviour {
         //Raycast with that layer mask
         if (Physics.Raycast(transform.position, down, out hit, Mathf.Infinity, layerMask))
         {
-            print(hit.transform);
+            //print(hit.transform);
             BBQ bbq = hit.transform.GetComponent<BBQ>();
 
             if (!bbq)
@@ -68,7 +70,6 @@ public class Draggable : MonoBehaviour {
 
     public void BeginDrag()
     {
-        print("drag begins");
         offset = gameObject.transform.position - PointerLocation();
 
     }
@@ -90,7 +91,7 @@ public class Draggable : MonoBehaviour {
 
     public void EndDrag()
     {
-        print("Drag ended!");
+        //print("Drag ended!");
         // Change some textures and state?
     }
 }
