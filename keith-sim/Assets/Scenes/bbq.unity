@@ -797,12 +797,12 @@ Prefab:
     - target: {fileID: 114649336209551778, guid: bdbbebda209a4764a85c21f22b452824,
         type: 2}
       propertyPath: lowRange
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114649336209551778, guid: bdbbebda209a4764a85c21f22b452824,
         type: 2}
       propertyPath: highRange
-      value: 1.5
+      value: 2.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdbbebda209a4764a85c21f22b452824, type: 2}

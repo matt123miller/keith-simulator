@@ -96,7 +96,7 @@ Transform:
   m_GameObject: {fileID: 1603749692741994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.82, y: -3.12, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
+  m_LocalScale: {x: 0.07, y: 0.07, z: 1}
   m_Children:
   - {fileID: 4876943070731366}
   - {fileID: 4598113123416750}
@@ -146,7 +146,7 @@ MonoBehaviour:
   cookedRender: {fileID: 0}
   burntRender: {fileID: 0}
   cookPercentage: 0
-  cookDuration: 3
+  cookDuration: 5
   cookRate: 1
 --- !u!114 &114682541386972890
 MonoBehaviour:
